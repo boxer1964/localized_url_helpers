@@ -20,6 +20,7 @@ module LocalizedUrlHelpers::NamedRouteCollectionMethods
       def #{selector}_with_locale(*args)   
         # when called with "ordered parameters", shift the locale into the parameter array
         args.unshift @locale unless args.empty? || Hash === args.first
+        args << @locale if args.empty? 
         #{selector}_without_locale(*args)
       end
     end_eval
